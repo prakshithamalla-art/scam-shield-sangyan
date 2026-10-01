@@ -1,0 +1,11 @@
+# Frontend is static. Deploy the backend separately (Render / Railway / Fly.io) and set the URL in frontend/js/config.js
+[build]
+  publish = "frontend"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

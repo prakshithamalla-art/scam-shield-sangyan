@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Scam Shield">
+  <path d="M32 4 8 13v17c0 15 10 26 24 30 14-4 24-15 24-30V13z" fill="#3b82f6"/>
+  <path d="M32 10 14 17v13c0 11 7.5 20 18 24 10.500-4 18-13 18-24V17z" fill="#0f172a"/>
+  <path d="M22 32.500 29.500 40 43 24" fill="none" stroke="#10b981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

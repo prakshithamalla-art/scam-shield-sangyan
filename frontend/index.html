@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scam Shield: Check before you click</title>
+  <meta name="description" content="Free tool to check suspicious SMS, WhatsApp messages, screenshots and links before you act. English, Hindi, Telugu.">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&family=Noto+Sans+Telugu:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to checker</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#" aria-label="Scam Shield">
+        <img src="assets/logo.svg" alt="" width="40" height="40">
+        <span>Scam Shield</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="hi" aria-pressed="false" lang="hi">हिं</button>
+          <button class="lang-btn" data-lang="te" aria-pressed="false" lang="te">తె</button>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Switch light or dark theme">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="wrap main-nav" aria-label="Main">
+      <button class="nav-btn is-active" data-view="check" aria-current="page" data-i18n="nav_check">Check</button>
+      <button class="nav-btn" data-view="learn" data-i18n="nav_learn">Learn</button>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ========== CHECK VIEW ========== -->
+    <div id="viewCheck" class="check-layout">
+      <div class="col-main">
+        <section class="hero wrap">
+          <h1 data-i18n="hero_h">Check before you click.</h1>
+          <p class="hero-sub" data-i18n="hero_sub">Got a strange SMS, WhatsApp message or link about money, shares or KYC? Paste it here. We tell you if it looks like a scam.</p>
+        </section>
+
+        <section id="checker" class="wrap checker" aria-labelledby="checkerTitle">
+          <h2 id="checkerTitle" class="sr-only" data-i18n="checker_title">Scam checker</h2>
+          <div class="tabs" role="tablist">
+            <button class="tab is-active" role="tab" id="tabMsg" aria-selected="true" aria-controls="panelMsg" data-mode="msg">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span data-i18n="tab_msg">Message</span>
+            </button>
+            <button class="tab" role="tab" id="tabUrl" aria-selected="false" aria-controls="panelUrl" data-mode="url">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+              <span data-i18n="tab_url">Link</span>
+            </button>
+            <button class="tab" role="tab" id="tabImg" aria-selected="false" aria-controls="panelImg" data-mode="img">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              <span data-i18n="tab_img">Screenshot</span>
+            </button>
+          </div>
+
+          <div id="panelMsg" class="panel" role="tabpanel" aria-labelledby="tabMsg">
+            <label for="msgInput" class="field-label" data-i18n="lbl_msg">Paste the message</label>
+            <div class="input-wrap">
+              <textarea id="msgInput" rows="6" maxlength="5000" data-i18n-ph="ph_msg" placeholder="Paste the SMS, WhatsApp message or email here"></textarea>
+              <button id="micBtn" class="mic-btn" type="button" data-i18n-aria="mic_start" data-i18n-title="mic_start" aria-label="Speak the message" title="Speak the message">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/></svg>
+              </button>
+            </div>
+            <div id="voiceBar" class="voice-bar" role="status" hidden>
+              <span class="rec-dot" aria-hidden="true"></span>
+              <span id="voiceStatus" class="voice-status" data-i18n="mic_listening">Listening... speak now</span>
+              <button id="stopBtn" class="btn btn-danger btn-sm" type="button" data-i18n="mic_stop">Stop</button>
+            </div>
+            <p id="voiceMsg" class="voice-msg" role="alert" hidden></p>
+          </div>
+
+          <div id="panelUrl" class="panel" role="tabpanel" aria-labelledby="tabUrl" hidden>
+            <label for="urlInput" class="field-label" data-i18n="lbl_url">Paste the link</label>
+            <input id="urlInput" type="url" inputmode="url" autocomplete="off" data-i18n-ph="ph_url" placeholder="https://...">
+          </div>
+
+          <div id="panelImg" class="panel" role="tabpanel" aria-labelledby="tabImg" hidden>
+            <span class="field-label" id="imgLabel" data-i18n="lbl_img">Upload a screenshot</span>
+            <label id="dropZone" class="dropzone" for="imgInput">
+              <input id="imgInput" class="dropzone-input" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="imgHint">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+              <span class="dropzone-main" data-i18n="img_drop">Tap to choose a screenshot, or drop it here</span>
+              <span id="imgHint" class="dropzone-hint" data-i18n="img_hint">PNG, JPG or WebP, up to 10 MB</span>
+            </label>
+            <div id="imgPreview" class="img-preview" hidden>
+              <img id="imgPreviewImg" alt="">
+              <button id="imgRemove" class="btn btn-ghost btn-sm" type="button" data-i18n="img_remove">Remove image</button>
+            </div>
+            <p id="imgMsg" class="voice-msg" role="alert" hidden></p>
+            <div id="ocrBox" class="ocr-box" hidden>
+              <label for="ocrText" class="field-label" data-i18n="ocr_title">Text we found</label>
+              <p class="ocr-hint" data-i18n="ocr_hint">Fix any mistakes, then check again.</p>
+              <textarea id="ocrText" rows="6" maxlength="5000"></textarea>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="checkBtn" class="btn btn-primary" data-i18n="btn_check">Check now</button>
+            <button id="clearBtn" class="btn btn-ghost" data-i18n="btn_clear">Clear</button>
+          </div>
+          <p class="privacy" data-i18n="privacy">We do not save your messages. They are checked and forgotten.</p>
+
+          <div class="examples">
+            <p class="examples-title" data-i18n="try_example">Try an example</p>
+            <div id="exampleList" class="example-list"></div>
+          </div>
+        </section>
+
+        <section id="results" class="wrap results" aria-live="polite" tabindex="-1" hidden></section>
+      </div>
+
+      <aside class="history-aside">
+        <details id="historyPanel" class="history">
+          <summary><span data-i18n="hist_title">Recent checks</span></summary>
+          <ul id="historyList" class="history-list"></ul>
+          <p id="historyEmpty" class="history-empty" data-i18n="hist_empty">Your last checks will appear here.</p>
+          <p class="history-note" data-i18n="hist_note">Saved only on this device. Never sent to our server.</p>
+          <button id="historyClear" class="btn btn-ghost btn-sm" type="button" data-i18n="hist_clear" hidden>Clear history</button>
+        </details>
+      </aside>
+    </div>
+
+    <!-- ========== LEARN VIEW ========== -->
+    <section id="viewLearn" class="wrap learn" aria-labelledby="learnTitle" hidden>
+      <h1 id="learnTitle" class="learn-h"></h1>
+      <p id="learnIntro" class="hero-sub"></p>
+      <div id="learnBody"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p data-i18n="disclaimer">Scam Shield is an educational tool, not legal, financial or investment advice. It can make mistakes. It does not recommend any stock, broker or product. When in doubt, check with your bank, a SEBI-registered intermediary, or call 1930.</p>
+      <p class="foot-note">Sangyan Hackathon · Track A: Digital Fraud &amp; Scam Resilience</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/learn-data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
